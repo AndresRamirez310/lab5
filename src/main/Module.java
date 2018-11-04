@@ -9,26 +9,30 @@ package lab5;
 * Represents a module.
 */
 public class Module {
-
+    private String moduleCode;
+    private String moduleName;
+    private DynamicAssessmentArray assessments;
     /**
     * Initialises a new module.
     */
     public Module(String moduleCode, String moduleName) {
-        // TODO: not implemented
+        this.moduleCode = moduleCode;
+        this.moduleName = moduleName;
+        assessments = new DynamicAssessmentArray(1);
     }
 
     /**
     * Gets the module code for this module.
     */
     public String getModuleCode() {
-        return ""; // TODO: not implemented
+        return this.moduleCode;
     }
 
     /**
     * Gets the name of the module.
     */
     public String getModuleName() {
-        return ""; // TODO: not implemented
+        return this.moduleName;
     }
 
     /**

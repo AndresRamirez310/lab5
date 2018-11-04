@@ -13,26 +13,26 @@ public class DynamicAssessmentArray {
     * The underlying array.
     */
     private Assessment[] array;
-    int capacity = 0 ;
+    private int next = 0;
     /**
     * Initialises a new dynamic array with the specified initial capacity.
     */
     public DynamicAssessmentArray(int initialCapacity) {
-        this.capacity = initialCapacity;
+        array = new Assessment[initialCapacity];
     }
 
     /**
     * Gets the number of elements stored in this dynamic array.
     */
     public int getSize() {
-        return 0;
+        return next;
     }
 
     /**
     * Gets the current capacity of this dynamic array.
     */
     public int getCapacity() {
-        return this.capacity;
+        return array.length;
     }
 
     /**
@@ -40,14 +40,21 @@ public class DynamicAssessmentArray {
     * and copies all elements from the old array into the new one.
     */
     private void resize() {
-        // TODO: not implemented
+        Assessment[] tempArray = new Assessment[array.length + 1];
+        System.arraycopy(array, 0, tempArray, 0, array.length);
+        array = tempArray;
     }
 
     /**
     * Adds a new element to this dynamic array.
     */
     public void add(Assessment assessment) {
-        // TODO: not implemented
+      if (next >= array.length) {
+        resize();
+      }
+
+        array [next] = assessment;
+        next++;
     }
 
     /**
@@ -55,9 +62,10 @@ public class DynamicAssessmentArray {
     * this method returns null.
     */
     public Assessment get(int index) {
-      if index < this.capacity{
-        return this.array [index];
-      }
+      if (index < array.length) {
+        return array [index];
+      } else {
         return null;
+      }
     }
 }
